@@ -1,13 +1,14 @@
-// index.js
 const express = require('express');
 const app = express();
-const port = 3000;
+const port = 3000; // ✅ Add this line here
 
-app.use(express.json()); // to parse JSON
+app.use(express.json()); // ✅ Middleware to parse JSON
 
-let books = []; // In-memory storage
+let books = []; // ✅ Your in-memory book list
 
-// GET - fetch all books
+// ✅ Routes below...
+
+// GET - return all books
 app.get('/books', (req, res) => {
   res.json(books);
 });
@@ -34,6 +35,7 @@ app.delete('/books/:id', (req, res) => {
   res.json({ message: 'Book deleted' });
 });
 
+// ✅ Start server
 app.listen(port, () => {
   console.log(`Server is running on http://localhost:${port}`);
 });
